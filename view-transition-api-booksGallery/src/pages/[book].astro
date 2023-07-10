@@ -1,0 +1,36 @@
+---
+const { book } = Astro.params;
+import { books } from "../data/books";
+import Layout from "../layout/Layout.astro";
+
+const info = books.find((item) => item.id === book);
+
+if (!info) return Astro.redirect("404");
+---
+
+<Layout title={info.title}>
+  <main
+    class="mx-auto max-w-[300px] min-[450px]:max-w-[400px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[900px]">
+    <section>
+      <article class="grid gap-3 grid-cols-1 sm:grid-cols-[300px_1fr] my-4">
+        <picture class="self-center">
+          <img
+            class="aspect-[389/500] h-full w-full object-cover rounded"
+            src={info.img}
+            alt={`Portada del libro ${info.title}`}
+          />
+        </picture>
+        <div class="self-center">
+          <header class="[&>*]:mb-4">
+            <h1 class="text-4xl font-bold">{info.title}</h1>
+            <p>Autor: {info.author}</p>
+            <p>
+              Opinión:
+              <span>{info.opinion}</span>
+            </p>
+          </header>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>
