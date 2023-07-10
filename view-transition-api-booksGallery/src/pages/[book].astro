@@ -18,6 +18,7 @@ if (!info) return Astro.redirect("404");
             class="aspect-[389/500] h-full w-full object-cover rounded"
             src={info.img}
             alt={`Portada del libro ${info.title}`}
+            style={`view-transition-name:${info.id}`}
           />
         </picture>
         <div class="self-center">

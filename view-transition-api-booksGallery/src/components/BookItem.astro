@@ -13,5 +13,6 @@ const { img, id } = Astro.props;
     class="aspect-[389/500] object-cover rounded w-full h-full"
     src={img}
     alt={`Portada del libro ${id}`}
+    style={`view-transition-name:${id}`}
   />
 </a>
