@@ -1,0 +1,19 @@
+---
+import { books } from "../data/books";
+import BookItem from "./BookItem.astro";
+---
+
+<section>
+  <ul
+    class="grid gap-3 grid-cols-[1fr] min-[500px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 px-3 py-2 text-center">
+    {
+      books.map(({ id, img }) => {
+        return (
+          <li>
+            <BookItem id={id} imgUrl={img} />
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
